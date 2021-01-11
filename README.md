@@ -1,7 +1,4 @@
-https://whoisfelix.com
-
-built with the ff technologies:
+Personal website.
 
 -   React, Typescript, NextJS, Webpack, Bulma
--   Wordpress API
--   Hosted in Zeit platform
+-   Hosted in Zeit platform (In progress)
