@@ -119,7 +119,7 @@ class HeaderContainer extends React.Component<Props> {
 const HeadCustom = () => {
     let metaDescription =
         'Carlos Camacho is a Software Engineer who loves kayaking, traveling and cooking! He loves to challenge himself everyday.';
-    let metaTitle = 'Carlos Camacho | Technology Enthusiast';
+    let metaTitle = 'Carlos Camacho';
 
     let ogType = 'blog';
     let ogImg = '';
