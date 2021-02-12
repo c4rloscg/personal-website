@@ -4,7 +4,7 @@ import * as StoreJS from 'store';
 import config from '../src/helpers/config';
 import APIClient from '../src/store/api/ApiClient';
 import Service from '../src/store/api/Service';
-import createStore, { RootServiceDependencies } from '../src/store';
+import createStore, { TRootServiceDependencies as RootServiceDependencies } from '../src/store';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
 import '../src/design/index.scss';

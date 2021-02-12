@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { RootState } from '../src/store';
+import { TRootState as RootState } from '../src/store';
 import { getProjectList } from '../src/store/project/state';
 // @ts-ignore
 import { action as toggleMenu } from 'redux-burger-menu';

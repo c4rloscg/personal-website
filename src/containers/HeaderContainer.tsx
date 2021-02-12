@@ -10,15 +10,21 @@ import { Dispatch } from 'redux';
 import { action as toggleMenu } from 'redux-burger-menu';
 import { Socials } from '../components/Socials';
 import { modifyWordpressObject } from '../helpers/helper';
-import { RootState } from '../store';
+import { TRootState as RootState } from '../store';
 import { RootAction } from '../store/root-action';
 
 import Link from 'next/link';
 import Router from 'next/router';
 
-Router.onRouteChangeStart = (url: string) => NProgress.start();
-Router.onRouteChangeComplete = () => NProgress.done();
-Router.onRouteChangeError = () => NProgress.done();
+Router.events.on('routeChangeStart', () => {
+    NProgress.start();
+});
+Router.events.on('routeChangeComplete', () => {
+    NProgress.done();
+});
+Router.events.on('routeChangeError', () => {
+    NProgress.done();
+});
 
 type HeaderProps = {};
 type ReduxProps = {};
@@ -177,7 +183,7 @@ const MenuSidebar = ({ burgerMenu, bmChangeState }: any) => {
 const mapStateToProps = (state: RootState) => ({
     ...state,
 });
-const mapDispatchToProps = (dispatch: Dispatch<RootAction>): ReduxActionProps => ({
+const mapDispatchToProps = (dispatch: any): ReduxActionProps => ({
     toggleMenu: (isOpen: boolean) => dispatch(toggleMenu(isOpen)),
 });
 
