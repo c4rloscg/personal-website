@@ -395,9 +395,13 @@ div:focus {
     display: inline-block;
 }
 
+.bm-item:focus {
+    outline: none;
+}
+
 /* Styling of overlay */
 .bm-overlay {
-    // background: #19499659 !important;
+    background: rgba(0, 100, 100, 0.3) !important;
 }
 
 /**** NPROGRESS ***/
