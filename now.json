@@ -17,37 +17,5 @@
             "src": "src/helpers/trailing-redirect.ts",
             "use": "@now/node"
         }
-    ],
-    "routes": [
-        {
-            "src": "/",
-            "dest": "/index",
-            "headers": { "Cache-Control": "s-maxage=2592000" }
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/static/favicon.ico",
-            "headers": { "Cache-Control": "s-maxage=2592000" }
-        },
-        {
-            "src": "(/.*)/",
-            "dest": "/src/helpers/trailing-redirect.ts",
-            "headers": { "Cache-Control": "s-maxage=2592000" }
-        },
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1",
-            "headers": { "Cache-Control": "s-maxage=2592000" }
-        },
-        {
-            "src": "/(?<name>[^/]+)$",
-            "headers": { "Cache-Control": "s-maxage=2592000" },
-            "dest": "/page?name=$name"
-        },
-        {
-            "src": "/projects/(?<slug>[^/]*)$",
-            "headers": { "Cache-Control": "s-maxage=2592000" },
-            "dest": "/page?name=projects&slug=$slug"
-        }
     ]
 }
