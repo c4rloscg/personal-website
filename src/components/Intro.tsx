@@ -1,25 +1,43 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
+import Typed from 'typed.js';
 import { Link } from 'react-scroll';
 
 export const Intro = () => {
+    let typed: any;
+
+    useEffect(() => {
+        typed = new Typed('#intro-1', {
+            strings: [
+                'I am a <span class="shadow success">Software Engineer</span> who loves solving problems and exploring <span className="shadow info">new technologies.</span>^3000 <br/><br/> Outside work,^500 I enjoy water activities like kayaking,^300 snorkeling,^300 and traveling every once in a while.',
+            ],
+            typeSpeed: 25,
+        });
+
+        return () => {
+            typed.destroy();
+        };
+    }, []);
+
     return (
-        <section className="hero is-fullheight">
-            <div className="hero-body">
+        <section
+            className="hero is-fullheight hero-section-picture"
+            style={{ backgroundImage: "url('ca-picture-2.jpg')" }}
+        >
+            <div className="hero-body hero-overlay">
                 <div className="intro container">
-                    <h1 className="title">
-                        Hello, my name is <strong className="shadow pink">Felix Noriel</strong>
-                    </h1>
+                    <h1 className="title">Hello, my name is Carlos Camacho</h1>
                     <h2 className="subtitle">
-                        {' '}
-                        I am a <span className="shadow success">Software Engineer</span> who loves{' '}
-                        <span className="shadow info">solving problems</span> and getting my hands dirty with{' '}
-                        <span className="shadow purple">new technologies</span>. Outside work, I'm a{' '}
-                        <span className="shadow pink">big foodie</span>, loves cooking and traveling every once in a
-                        while.
+                        <div id="intro-1" style={{ display: 'inline' }}></div>
                     </h2>
                     <p className="learn-more">
                         Learn more about me
-                        <Link className="btn-learn-more" to="skills-section" smooth={true} duration={500}>
+                        <Link
+                            className="btn-learn-more"
+                            style={{ marginLeft: '5px' }}
+                            to="skills-section"
+                            smooth={true}
+                            duration={500}
+                        >
                             <i className="fas fa-arrow-down" />
                         </Link>
                     </p>

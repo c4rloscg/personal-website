@@ -6,9 +6,9 @@ export const Skills = () => {
             <section id="skills-section" className="hero is-medium is-primary is-long is-bold">
                 <div className="hero-body">
                     <div className="container has-text-centered">
-                        <h1 className="title">I have over six years experience as a Full-Stack Software Engineer</h1>
+                        <h1 className="title">I have over five years experience as a Full-Stack Software Engineer</h1>
                         <h2 className="subtitle">
-                            Strategising, designing, and developing big scalable applications from end to end
+                            Strategising, designing, and developing applications from end to end.
                         </h2>
                     </div>
                 </div>
@@ -20,24 +20,22 @@ export const Skills = () => {
                             <i className="far fa-file-code" />
                         </p>
                         <h2 className="title is-size-4 is-spaced">Front end</h2>
-                        <h4 className="list-title">frameworks</h4>
+                        <h4 className="list-title">Frameworks & libraries</h4>
                         <ul>
-                            <li>ReactJs</li>
-                            <li>TypeScript</li>
-                            <li>JavaScript</li>
-                            <li>EcmaScript</li>
-                            <li>AngularJs</li>
+                            <li>React.js, React Native</li>
+                            <li>JavaScript (ES6)</li>
+                            <li>Redux</li>
+                            <li>SWR Hooks</li>
+                            <li>Jest</li>
                             <li>JQuery</li>
+                            <li>ASP.Net MVC</li>
                         </ul>
+                        <hr />
                         <h4 className="list-title">Responsive design</h4>
                         <ul>
                             <li>HTML 5 & CSS 3 (SASS)</li>
                             <li>Flexbox, Grid Layout</li>
-                            <li>Bulma, Ant Design, Bootstrap</li>
-                        </ul>
-                        <h4 className="list-title">Build/Running tools</h4>
-                        <ul>
-                            <li>Webpack</li>
+                            <li>Material-UI, Bootstrap, Tailwind</li>
                         </ul>
                     </div>
                     <div className="column ">
@@ -49,16 +47,18 @@ export const Skills = () => {
                         <ul>
                             <li>NodeJs</li>
                             <li>PHP</li>
-                            <li>Java</li>
-                            <li>.NET, C#</li>
+                            <li>Python</li>
+                            <li>C#</li>
                         </ul>
-                        <h4 className="list-title">Microservices</h4>
+                        <hr />
+                        <h4 className="list-title">Frameworks</h4>
                         <ul>
-                            <li>Opentracing, Jaeger Tracing</li>
-                            <li>Prometheus for monitoring</li>
+                            <li>Next.js</li>
+                            <li>ASP.Net Core</li>
+                            <li>Django REST</li>
                         </ul>
-
-                        <h4 className="list-title">DB/Storage</h4>
+                        <hr />
+                        <h4 className="list-title">Databases</h4>
                         <ul>
                             <li>MySQL</li>
                             <li>PostgreSQL</li>
@@ -69,26 +69,29 @@ export const Skills = () => {
                         <p className="skills-icon">
                             <i className="fas fa-terminal" />
                         </p>
+                        <h2 className="title is-size-4 is-spaced">Tools & others</h2>
+                        <ul>
+                            <li>Cypress.io</li>
+                            <li>Testing Library/React</li>
+                            <li>API Design</li>
+                            <li>Jira (UI + API)</li>
+                            <hr />
+                            <li>Adobe Photoshop</li>
+                            <li>PLC Programming</li>
+                            <li>Raspberry Pi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="columns box">
+                    <div className="column ">
+                        <p className="skills-icon">
+                            <i className="fas fa-terminal" />
+                        </p>
                         <h2 className="title is-size-4 is-spaced">Dev Ops </h2>
-                        <h4 className="list-title">AWS Services</h4>
                         <ul>
-                            <li>EC2 Instance</li>
-                            <li>API Gateway</li>
-                            <li>VPC, Route53</li>
-                            <li>Cloudfront</li>
-                            <li>Elastic Load Balancing</li>
-                            <li>S3 Bucket</li>
-                        </ul>
-
-                        <h4 className="list-title">Google Cloud Services</h4>
-                        <h4 className="list-title">Containers</h4>
-                        <ul>
+                            <li>Git (Github, Gitlab)</li>
+                            <li>AWS</li>
                             <li>Docker</li>
-                        </ul>
-                        <h4 className="list-title">Server Management</h4>
-                        <ul>
-                            <li>Linux, Ubuntu</li>
-                            <li>Web servers like Apache, NGINX</li>
                         </ul>
                     </div>
                 </div>

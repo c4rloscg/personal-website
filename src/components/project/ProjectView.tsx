@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { modifyWordpressObject } from '../../helpers/helper';
 import { Tag } from '../Tag';
 // @ts-ignore
@@ -13,7 +13,7 @@ type ProjectViewProps = {
     className?: string;
 };
 
-export const ProjectView: React.SFC<ProjectViewProps> = ({ project }) => {
+export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
     if (!project || !project[0]) {
         return <div />;
     }
@@ -71,11 +71,7 @@ const ProjectCompanyInfo = (company: any) => {
     return (
         <div>
             <h3 className="subtitle">Company</h3>
-            <Link
-                as={modifyCompany.custom_modified.postUrlPath}
-                href={`/page?name=career&slug=${modifyCompany.slug}`}
-                prefetch
-            >
+            <Link as={modifyCompany.custom_modified.postUrlPath} href={`/page?name=career&slug=${modifyCompany.slug}`}>
                 <a>
                     {' '}
                     <p>{modifyCompany.title.rendered}</p>{' '}

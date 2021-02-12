@@ -4,7 +4,7 @@ import { Socials } from '../components/Socials';
 
 export const FooterContainer = () => {
     return (
-        <div>
+        <div style={{ marginTop: 'auto' }}>
             <section className="section container contact-container has-text-centered">
                 <div className="box hero is-dark2">
                     <div className="columns level">
@@ -12,15 +12,7 @@ export const FooterContainer = () => {
                             <h2 className="title">Connect with me</h2>
                         </div>
                         <div className="column level-item">
-                            <h2 className="subtitle">You can follow me or just send a message and say Hello</h2>
-                        </div>
-                        <div className="column level-item">
-                            <a
-                                className="button btn-message-me is-outlined is-rounded is-medium"
-                                href="mailto:jrnoriel_56@yahoo.com"
-                            >
-                                Message me
-                            </a>
+                            <h2 className="subtitle">You can follow me or just send a message and say Hello!</h2>
                         </div>
                     </div>
                 </div>
@@ -30,12 +22,9 @@ export const FooterContainer = () => {
                     <div className="content">
                         <Socials />
                         <p className="made-with">
-                            <Link as={`/about`} href={`/page?name=about`} prefetch>
+                            <Link href={`/page?name=about`}>
                                 <a>About this website</a>
                             </Link>
-                        </p>
-                        <p className="copyright">
-                            Created by Felix Noriel <i className="far fa-copyright" /> 2019
                         </p>
                     </div>
                 </div>

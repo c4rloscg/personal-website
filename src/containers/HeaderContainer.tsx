@@ -8,7 +8,6 @@ import { Link as LinkScroll } from 'react-scroll';
 import { Dispatch } from 'redux';
 // @ts-ignore
 import { action as toggleMenu } from 'redux-burger-menu';
-import { GoogleTagManager } from '../components/google/GoogleTagManager';
 import { Socials } from '../components/Socials';
 import { modifyWordpressObject } from '../helpers/helper';
 import { RootState } from '../store';
@@ -36,9 +35,12 @@ class HeaderContainer extends React.Component<Props> {
             showBurgerMenu: false,
             showUpButton: false,
             showTestLinks: false,
+            isHome: false,
         };
         this.bmChangeState = this.bmChangeState.bind(this);
     }
+
+    private isHome = () => document?.location.pathname == '/';
 
     public bmChangeState(state: any) {
         this.props.toggleMenu!(state.isOpen);
@@ -47,6 +49,7 @@ class HeaderContainer extends React.Component<Props> {
 
     public componentDidMount() {
         this.isMounted = true;
+        this.setState({ isHome: this.isHome() });
         if (window.location && window.location.search.indexOf('?qwe') > -1) {
             this.setState({
                 showTestLinks: true,
@@ -86,16 +89,19 @@ class HeaderContainer extends React.Component<Props> {
     }
 
     public render() {
-        const { burgerMenu, blog }: any = this.props;
-        const { showBurgerMenu, showUpButton }: any = this.state;
+        const { burgerMenu }: any = this.props;
+        const { showBurgerMenu, showUpButton, isHome }: any = this.state;
         const menuHasFadeIn = showBurgerMenu ? 'show-background' : ''; // - enable during production
         const upButtonHasFadeIn = showUpButton ? '' : 'hide'; // - enable during production
 
         return (
             <div>
-                <HeadCustom blog={blog.blog} key="header-1" />
+                <HeadCustom key="header-1" />
                 <MenuSidebar bmChangeState={this.bmChangeState} burgerMenu={burgerMenu} />
-                <section className={`${menuHasFadeIn} fade-in top-nav-container`}>
+                <section
+                    className={`${menuHasFadeIn} fade-in top-nav-container`}
+                    style={isHome ? {} : { color: '#1a2234' }}
+                >
                     <p className="btn-burger-menu pointer" onClick={() => this.props.toggleMenu!(true)}>
                         <i className="fa fas fa-bars" />
                     </p>
@@ -110,41 +116,20 @@ class HeaderContainer extends React.Component<Props> {
     }
 }
 
-const HeadCustom = ({ blog }: any) => {
+const HeadCustom = () => {
     let metaDescription =
-        'Felix Noriel is a Software Engineer who loves food, traveling and cooking! He loves to challenge himself everyday. He is exploring the world, one country at a time. ';
-    let metaTitle =
-        'Felix Noriel | Foodie | Technology Enthusiast | Mixing life between food, traveling and technology';
+        'Carlos Camacho is a Software Engineer who loves kayaking, traveling and cooking! He loves to challenge himself everyday.';
+    let metaTitle = 'Carlos Camacho | Technology Enthusiast';
 
     let ogType = 'blog';
     let ogImg = '';
-    const ogSiteName = '';
     let ogUpdatedTime = '';
-    let publishedTime = '';
-    let ogUrl = '//whoisfelix.com';
-
-    if (blog && blog[0]) {
-        const modifyBlog = modifyWordpressObject(blog[0]);
-        metaDescription = modifyBlog.excerpt.rendered;
-        metaTitle = modifyBlog.title.rendered;
-        ogImg = modifyBlog.custom_modified.featuredImgSrc.source_url;
-        ogUpdatedTime = modifyBlog.modified;
-        ogUrl = modifyBlog.custom_modified.postUrlPath;
-        ogType = 'article';
-        publishedTime = modifyBlog.custom_modified.date;
-    }
 
     return (
         <Head>
             <title>{metaTitle}</title>
 
-            <script async src="//www.googletagmanager.com/gtag/js?id=UA-80189799-2" />
-            <script async src="//www.googletagservices.com/tag/js/gpt.js" />
-            <GoogleTagManager scriptId="google-tag-manager" gtmId="GTM-PKHZBV4" type="script" />
-
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            <meta name="author" content="Felix Noriel" itemProp="author" />
-            <meta name="dcterms.rightsHolder" content="Felix Noriel" />
             <meta name="robots" content="index, follow" />
             <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
             <meta name="dc.language" content="en-US" />
@@ -155,8 +140,7 @@ const HeadCustom = ({ blog }: any) => {
             <meta property="og:title" content={metaTitle} />
             <meta property="og:description" content={metaDescription} />
             <meta property="og:image" content={ogImg} />
-            <meta property="og:url" content={ogUrl} />
-            <meta property="og:site_name" content="felix noriel" />
+            <meta property="og:site_name" content="carlos camacho" />
             <meta property="og:updated_time" content={ogUpdatedTime} />
 
             <meta name="twitter:site" content="felixnoriel.com" />
@@ -164,13 +148,6 @@ const HeadCustom = ({ blog }: any) => {
             <meta name="twitter:image" itemProp="image" content={ogImg} />
             <meta name="twitter:card" content="summary_large_image" />
 
-            <meta property="article:publisher" content="Felix Noriel" />
-            <meta property="article:published_time" content={publishedTime} />
-            <meta property="article:modified_time" content={ogUpdatedTime} />
-            <meta property="article:tag" content="blog, article" />
-            <meta property="article:section" content="blog" />
-
-            <link rel="canonical" href={`${ogUrl}`} />
             <link href="//fonts.googleapis.com/css?family=Oxygen|Raleway" rel="stylesheet" />
         </Head>
     );
@@ -180,22 +157,15 @@ const MenuSidebar = ({ burgerMenu, bmChangeState }: any) => {
     return (
         <Menu right isOpen={burgerMenu.isOpen} customBurgerIcon={false} onStateChange={bmChangeState}>
             <div className="menu-links">
-                <Link as="/" href="/" prefetch>
+                <Link href="/">
                     <a>Home</a>
                 </Link>
-                <Link as="/projects" href="/page?name=projects" prefetch>
+                {/* <Link as="/projects" href="/page?name=projects">
                     <a>Projects</a>
-                </Link>
-                <Link as="/career" href="/page?name=career" prefetch>
-                    <a>Career</a>
-                </Link>
-                <Link as="/blog" href="/page?name=blog" prefetch>
-                    <a>Blog</a>
-                </Link>
-                <Link as="/about" href="/page?name=about" prefetch>
+                </Link> */}
+                <Link href="/page?name=about">
                     <a>About</a>
                 </Link>
-                <a href="mailto:jrnoriel_56@yahoo.com">Contact Me</a>
             </div>
             <div className="menu-socials">
                 <Socials />
@@ -211,7 +181,4 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): ReduxActionProps =>
     toggleMenu: (isOpen: boolean) => dispatch(toggleMenu(isOpen)),
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(HeaderContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

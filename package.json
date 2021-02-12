@@ -1,10 +1,10 @@
 {
-    "name": "felixwebsite",
+    "name": "personal-website",
     "version": "1.0.0",
-    "description": "felix website built with react, typescript, nextjs for ssr, redux, wordpress api",
+    "description": "Website built with react, typescript, nextjs for ssr, redux, wordpress api",
     "main": "server.js",
     "scripts": {
-        "dev": "NODE_ENV=development next",
+        "dev": "SET NODE_ENV=development & next",
         "build": "NODE_ENV=production next build",
         "start": "NODE_ENV=production ts-node server.ts",
         "precommit": "pretty-quick --staged",
@@ -13,7 +13,6 @@
         "ts-lint": "tslint --config ./tslint.json --project ./tsconfig.json ./src/**/*.{ts,tsx} --exclude ./node_modules/**/*.{j,t}s",
         "tslint-check": "tslint-config-prettier-check ./tslint.json"
     },
-    "author": "Felix Noriel",
     "license": "ISC",
     "dependencies": {
         "axios": "^0.18.0",
@@ -37,7 +36,6 @@
         "react": "^16.8.4",
         "react-burger-menu": "^2.5.2",
         "react-dom": "^16.8.4",
-        "react-google-tag-manager": "^2.2.1",
         "react-grid-gallery": "^0.5.1",
         "react-images": "^0.5.19",
         "react-redux": "^5.0.7",
@@ -48,7 +46,8 @@
         "redux-devtools-extension": "^2.13.5",
         "redux-thunk": "^2.3.0",
         "store": "^2.0.12",
-        "ts-node": "^8.0.3"
+        "ts-node": "^8.0.3",
+        "typed.js": "^2.0.11"
     },
     "devDependencies": {
         "@babel/core": "^7.3.4",

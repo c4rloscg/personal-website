@@ -2,17 +2,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { RootState } from '../src/store';
-import { getBlogList } from '../src/store/blog/state';
-import { getCareerList } from '../src/store/career/state';
 import { getProjectList } from '../src/store/project/state';
 // @ts-ignore
 import { action as toggleMenu } from 'redux-burger-menu';
 
 import { MainContainer } from '../src/containers/MainContainer';
 import { Intro } from '../src/components/Intro';
-import { CareerTimeline } from '../src/components/career/CareerTimeline';
 import { ProjectList } from '../src/components/project/ProjectList';
-import { BlogList } from '../src/components/blog/BlogList';
 import { Skills } from '../src/components/skills/Skills';
 
 type ReduxActionProps = {};
@@ -37,9 +33,7 @@ class Index extends React.PureComponent {
   */
     public static async getInitialProps({ req, store, pathname, params, query }: any) {
         await store.dispatch(toggleMenu(false));
-        await store.dispatch(getCareerList(3));
         await store.dispatch(getProjectList(3));
-        await store.dispatch(getBlogList(3));
 
         return {};
     }
@@ -47,27 +41,20 @@ class Index extends React.PureComponent {
     // third to be called
     //
     public render() {
-        const { career, project, blog }: any = this.props;
+        const { project }: any = this.props;
 
         return (
             <MainContainer>
                 <Intro />
                 <Skills />
-                <CareerTimeline indexPage={true} experiences={career.careerList} />
                 <ProjectList indexPage={true} projects={project.projectList} />
-                <BlogList indexPage={true} blogList={blog.blogList} />
             </MainContainer>
         );
     }
 }
 const mapStateToProps = (state: RootState) => ({
-    career: state.career,
     project: state.project,
-    blog: state.blog,
 });
 const mapDispatchToProps = (dispatch: Dispatch<any>): ReduxActionProps => ({});
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

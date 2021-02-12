@@ -1,11 +1,9 @@
 import { applyMiddleware, compose, createStore, Store } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import { BlogDependencies } from './blog/state';
-import { CareerDependencies } from './career/state';
 import { ProjectDependencies } from './project/state';
 import rootReducer from './root-reducer';
 
-export type RootServiceDependencies = BlogDependencies & CareerDependencies & ProjectDependencies;
+export type RootServiceDependencies = ProjectDependencies;
 
 const composeEnhancers =
     (typeof window !== 'undefined' && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;

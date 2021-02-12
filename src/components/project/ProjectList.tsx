@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { modifyWordpressObject } from '../../helpers/helper';
 import { Tag } from '../Tag';
@@ -12,7 +12,7 @@ type ProjectListProps = {
     indexPage?: boolean;
 };
 
-export const ProjectList: React.SFC<ProjectListProps> = ({ projects, viewType, indexPage }) => {
+export const ProjectList: React.FC<ProjectListProps> = ({ projects, viewType, indexPage }) => {
     if (!projects || !projects[0]) {
         return <div />;
     }
@@ -31,11 +31,6 @@ const ProjectListHeader = ({ viewType }: any) => {
     let title = 'Projects';
     let subtitle = 'Some of my past work';
     let heroSize = 'is-medium';
-    if (viewType === 'career') {
-        title = "Some projects I've been involved with";
-        subtitle = '';
-        heroSize = '';
-    }
     return (
         <section className={`hero ${heroSize} is-darkturquoise is-long is-bold`}>
             <div className="hero-body">
@@ -73,7 +68,6 @@ const Project = ({ project }: any) => {
             <Link
                 as={modifyProject.custom_modified.postUrlPath}
                 href={`/page?name=projects&slug=${modifyProject.slug}`}
-                prefetch
             >
                 <a>
                     <div className="project-item">

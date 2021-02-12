@@ -3,15 +3,11 @@ import { combineReducers } from 'redux';
 import { reducer as burgerMenu } from 'redux-burger-menu';
 import { StateType } from 'typesafe-actions';
 
-import { blogReducer } from './blog/state';
-import { careerReducer } from './career/state';
 import { projectReducer } from './project/state';
 
 const rootReducer = () =>
     combineReducers({
         project: projectReducer,
-        career: careerReducer,
-        blog: blogReducer,
         burgerMenu,
     });
 

@@ -1,25 +1,23 @@
-import * as React from 'react';
-import Document, { Head, Main, NextScript, NextDocumentContext } from 'next/document';
-import { GoogleTagManager } from '../src/components/google/GoogleTagManager';
+import React from 'react';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 export default class MyDocument extends Document {
-    public static async getInitialProps(ctx: NextDocumentContext) {
+    public static async getInitialProps(ctx: DocumentContext) {
         const initialProps = await Document.getInitialProps(ctx);
         return { ...initialProps };
     }
 
     public render() {
         return (
-            <html>
+            <Html>
                 <Head>
                     <link rel="stylesheet" href="/_next/static/style.css" />
                 </Head>
                 <body>
-                    <GoogleTagManager scriptId="google-tag-manager" gtmId="GTM-PKHZBV4" type="noscript" />
                     <Main />
                     <NextScript />
                 </body>
-            </html>
+            </Html>
         );
     }
 }

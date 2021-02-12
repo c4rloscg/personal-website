@@ -30,11 +30,9 @@ class ProviderApp extends App {
         const { Component, pageProps, store }: any = this.props;
 
         return (
-            <Container>
-                <Provider store={store}>
-                    <Component {...pageProps} />
-                </Provider>
-            </Container>
+            <Provider store={store}>
+                <Component {...pageProps} />
+            </Provider>
         );
     }
 }

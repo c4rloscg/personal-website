@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "felixnoriel-nextjs",
+    "name": "carlos-camacho",
     "builds": [
         {
             "src": "package.json",
@@ -43,16 +43,6 @@
             "src": "/(?<name>[^/]+)$",
             "headers": { "Cache-Control": "s-maxage=2592000" },
             "dest": "/page?name=$name"
-        },
-        {
-            "src": "/blog/(?<slug>[^/]*)$",
-            "headers": { "Cache-Control": "s-maxage=2592000" },
-            "dest": "/page?name=blog&slug=$slug"
-        },
-        {
-            "src": "/career/(?<slug>[^/]*)$",
-            "headers": { "Cache-Control": "s-maxage=2592000" },
-            "dest": "/page?name=career&slug=$slug"
         },
         {
             "src": "/projects/(?<slug>[^/]*)$",
