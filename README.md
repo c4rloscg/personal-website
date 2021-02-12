@@ -1,4 +1,6 @@
 Personal website.
 
--   React, Typescript, NextJS, Webpack, Bulma
--   Hosted in Zeit platform (In progress)
+-   React.js, Typescript, Next.js, Webpack, Bulma.
+-   Hosted in Zeit platform.
+
+https://carloscamacho.vercel.app
