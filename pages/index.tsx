@@ -47,7 +47,7 @@ class Index extends React.PureComponent {
             <MainContainer>
                 <Intro />
                 <Skills />
-                <ProjectList indexPage={true} projects={project.projectList} />
+                {/* <ProjectList indexPage={true} projects={project.projectList} /> */}
             </MainContainer>
         );
     }
